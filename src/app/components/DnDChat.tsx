@@ -1,7 +1,24 @@
 "use client";
-import { ScrollText, Shield, Sword } from "lucide-react";
+import { ScrollText, Shield } from "lucide-react";
 import React from "react";
 import { generateQuery } from "../actions";
+
+const D20Icon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polygon points="12 2 21 8 17 20 7 20 3 8" />
+    <path d="M12 2 12 8 21 8" />
+    <path d="M12 8 7 20" />
+    <path d="M12 8 17 20" />
+  </svg>
+);
 
 export const DnDChat = () => {
   const [input, setInput] = React.useState("");
@@ -159,7 +176,7 @@ export const DnDChat = () => {
       <div className="min-h-40 max-h-80 overflow-y-auto flex flex-col gap-4 pr-1 bg-white/90 border border-rose-100 rounded-2xl p-4 shadow-inner shadow-rose-100/70">
         {loading && (
           <div className="flex items-center gap-2 text-rose-700">
-            <Sword className="animate-pulse" />
+            <D20Icon className="w-5 h-5 animate-spin" />
             <p className="text-sm">Forjando la respuesta...</p>
           </div>
         )}
